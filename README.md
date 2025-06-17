@@ -1,24 +1,54 @@
-# README
+# Currency Converter
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The objective of this project is to create a simple API that allows users to convert values between different currencies.
+---
 
-Things you may want to cover:
+## 🚀 Technologies
 
-* Ruby version
+- Ruby 3.2
+- Rails 7
+- PostgreSQL
+- Docker + Docker Compose
 
-* System dependencies
+---
 
-* Configuration
+## ⚙️ Setup
 
-* Database creation
+### 1. Clone the repository
 
-* Database initialization
+```bash
+git clone git@darwin:darwinssilva/currency-converter.git
+cd currency-converter
+```
 
-* How to run the test suite
+### 2. Build the Docker containers
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+docker compose build
+```
 
-* Deployment instructions
+### 3. Initialize the Rails application
+```bash
+docker compose run web rails new . --force --no-deps --database=postgresql
+```
+Change the `config/database.yml` to use the `db` service as the host for the database connection.
 
-* ...
+### 4. Start the Docker containers
+
+```bash
+docker compose up
+```
+
+## 🗃️ Database
+
+### 1. Access the web container's bash:
+
+```bash
+docker compose exec web bash
+```
+
+### 2. Now you can run the Rails commands to create, migrate, and seed the database:
+
+```bash
+rails db:create
+```
