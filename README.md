@@ -17,7 +17,7 @@ The objective of this project is to create a simple API that allows users to con
 ### 1. Clone the repository
 
 ```bash
-git clone git@darwin:darwinssilva/currency-converter.git
+git clone https://github.com/darwinssilva/currency-converter.git
 cd currency-converter
 ```
 
