@@ -1,0 +1,26 @@
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'config/**/*'
+    - 'test/**/*'
+
+Layout/LineLength:
+  Max: 120
+
+Style/StringLiterals:
+  Enabled: false # Prefer single quotes for strings
+
+Style/FrozenStringLiteralComment:
+  Enabled: false # Frozen string literal comment is not needed in Ruby 3.0+
+
+Style/Documentation:
+  Enabled: false # Disable documentation requirement for classes and modules
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false # Disable empty line after guard clauses
