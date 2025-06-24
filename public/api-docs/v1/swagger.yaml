@@ -12,9 +12,63 @@ paths:
       parameters: []
       responses:
         '201':
-          description: conversion successful
+          description: Conversion successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transaction_id:
+                    type: integer
+                    example: 123
+                  user_id:
+                    type: integer
+                    example: 1
+                  from_currency:
+                    type: string
+                    example: USD
+                  to_currency:
+                    type: string
+                    example: BRL
+                  from_value:
+                    type: number
+                    example: 100.0
+                  to_value:
+                    type: number
+                    example: 525.0
+                  rate:
+                    type: number
+                    example: 5.25
         '404':
-          description: user not found
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: User not found
+        '422':
+          description: Invalid currency code
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Invalid currency code
+        '502':
+          description: Exchange rate fetch failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Could not fetch exchange rate
       requestBody:
         content:
           application/json:
@@ -23,12 +77,16 @@ paths:
               properties:
                 user_id:
                   type: integer
+                  example: 1
                 from_currency:
                   type: string
+                  example: USD
                 to_currency:
                   type: string
+                  example: BRL
                 amount:
                   type: number
+                  example: 100.0
               required:
               - user_id
               - from_currency

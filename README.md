@@ -51,4 +51,23 @@ docker compose exec web bash
 
 ```bash
 rails db:create
+rails db:migrate
+rails db:seed
+```
+
+## 📄 API Documentation (Swagger)
+
+You can explore and test the API using Swagger UI.
+
+### 1. Access it via browser:
+
+```bash
+http://localhost:3000/api-docs/index.html
+```
+
+## 🧪 Running tests
+
+```bash
+docker compose exec web bash
+bundle exec rspec
 ```
