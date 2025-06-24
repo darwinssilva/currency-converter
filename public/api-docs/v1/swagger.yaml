@@ -1,0 +1,41 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/convert":
+    post:
+      summary: Convert currency
+      tags:
+      - Conversions
+      parameters: []
+      responses:
+        '201':
+          description: conversion successful
+        '404':
+          description: user not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                from_currency:
+                  type: string
+                to_currency:
+                  type: string
+                amount:
+                  type: number
+              required:
+              - user_id
+              - from_currency
+              - to_currency
+              - amount
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
