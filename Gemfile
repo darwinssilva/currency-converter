@@ -49,6 +49,9 @@ gem 'dotenv-rails'
 # CurrencyAPI for currency conversion
 gem 'currencyapi', '~> 1.0'
 
+# ActiveModelSerializers for JSON serialization
+gem 'active_model_serializers'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
@@ -58,8 +61,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 5.0'
   gem 'rubocop', require: false
-  gem 'webmock'
   gem 'shoulda-matchers'
+  gem 'webmock'
 end
 
 group :development do

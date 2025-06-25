@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   #
   # Define routes for the ConversionsController
   post '/convert', to: 'conversions#create'
+
+  # Define routes for the TransactionsController
+  get '/transactions', to: 'transactions#index'
 end

@@ -92,6 +92,54 @@ paths:
               - from_currency
               - to_currency
               - amount
+  "/transactions":
+    get:
+      summary: List transactions by user
+      tags:
+      - Transactions
+      parameters:
+      - name: user_id
+        in: query
+        required: true
+        description: ID of the user
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: transactions listed
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    user_id:
+                      type: integer
+                    from_currency:
+                      type: string
+                    to_currency:
+                      type: string
+                    from_value:
+                      type: number
+                    to_value:
+                      type: number
+                    rate:
+                      type: number
+                  required:
+                  - id
+                  - user_id
+                  - from_currency
+                  - to_currency
+                  - from_value
+                  - to_value
+                  - rate
+                  - created_at
+                  - updated_at
+        '400':
+          description: missing user_id parameter
 servers:
 - url: https://{defaultHost}
   variables:
